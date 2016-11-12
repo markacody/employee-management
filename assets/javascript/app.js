@@ -11,7 +11,7 @@ var config = {
 firebase.initializeApp(config);
 
 // Create a variable to reference the database
-var database = firebase.database();
+var dataRef = firebase.database();
 
 $('#add-user').on('click', function() {
     // Initial Values
