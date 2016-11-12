@@ -11,37 +11,73 @@
     	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     	<!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/bootstrap.min.css"> -->
     	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
 </head>
 <body>
-
-<div class="row">
-      <div class="col-md-12">
-            <div id="currentEmployees">
-              
-            </div>
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1 class="text-center">Sign-Up Today!</h1>
       </div>
-</div>
 
-    <div class="row">
-      <div class="col-md-8">
-            <div id="">
-                <div id="">
-            
+      <div class="row container">
+
+        <!-- Sign-Up Panel-->
+        <div class="col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">New Member Sign-Up</h3>
+            </div>
+            <div class="panel-body">
+
+              <!-- Sign-up Form (note the various input "types")-->
+
+              <form role="form">
+                <div class="form-group">
+                  <label for="name-input">Employee Name:</label>
+                  <input class="form-control" id="name-input" type="text">
                 </div>
+                <div class="form-group">
+                  <label for="role-input">Role</label>
+                  <input class="form-control" id="role-input" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="date-input">Start Date (DD/MM/YY - ex: 01/01/89)</label>
+                  <input class="form-control" id="date-input" type="date">
+                </div>
+                 <div class="form-group">
+                  <label for="rate-input">Role</label>
+                  <input class="form-control" id="rate-input" type="number">
+                </div>
+               
+                <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+              </form>
+
             </div>
+
+          </div>
+
+        </div>
+
+        <!-- Most Recent Member Panel -->
+        <div class="col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Most Recent Member</h3>
+            </div>
+            <div class="panel-body" id="recent-member">
+              <h2 id="name-display"></h2>
+              <h4 id="email-display"></h4>
+              <h4 id="age-display"></h4>
+              <p id="comment-display"></p>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="col-md-4">
-            <form id="employee-form">
-              <label for="">Employee Label: </label><br>
-              <input type="text" id="" placeholder=""><br>
 
-              <input id="" type="submit" value="submit">
-            </form>
-              
-      </div>
-</div>
+    </div>
 
-
+</main>
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
