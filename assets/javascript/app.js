@@ -9,3 +9,40 @@ var config = {
    messagingSenderId: "262395923194"
  };
  firebase.initializeApp(config);
+
+ // Create a variable to reference the database
+	var database = firebase.database();
+
+$('#add-user').on('click', function() {
+	// Initial Values
+	var name = '';
+	var role = '' ;
+	var startDate = '';
+	var monthlyRate = 0;
+
+	name = $('#name-input').val().trim();
+	role = $('#role-input').val().trim();
+	startDate = $('#date-input').val().trim();
+	monthlyRate = $('rate-input').val().trim();
+
+	dataRef.ref().push( {
+		name: name,
+		role: role,
+		startDate: startDate,
+		monthlyRate: monthlyRate,
+		dateAdded: firebase.database.ServerValue.TIMESTAMP
+	});
+		return false;
+});
+	//Firebase watcher
+
+	dataRef.ref().on('child_added', function(childSnapshot){
+			console.log(childSnapshot.val().name);
+		    console.log(childSnapshot.val().role);
+		    console.log(childSnapshot.val().startDate);
+		    console.log(childSnapshot.val().monthlyRate);
+		    console.log(childSnapshot.val().dateAdded);
+
+	});
+
+	dataRef.ref().orderByChild('dateAdded').limitToLast
